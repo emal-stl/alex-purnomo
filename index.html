@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Portofolio Alex Punomo, desainer digital yang merangkai ide menjadi pengalaman visual yang berkesan.">
+  <title>Alex Punomo - Desainer Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #111111;
+      --paper: #f5f2ee;
+      --pink: #fa5c9d;
+      --muted: #a7a3a5;
+      --line: rgba(245, 242, 238, .16);
+      --display: "Space Grotesk", sans-serif;
+      --body: "DM Sans", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .shell { width: min(1180px, calc(100% - 64px)); margin-inline: auto; }
+    .site-header { position: absolute; z-index: 5; inset: 0 0 auto; }
+    .nav { min-height: 92px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-family: var(--display); font-weight: 700; font-size: 18px; }
+    .brand-mark { width: 12px; height: 12px; background: var(--pink); border-radius: 50%; box-shadow: 0 0 22px rgba(250, 92, 157, .6); }
+    .nav-links { display: flex; align-items: center; gap: 36px; color: #d7d2d4; font-size: 14px; }
+    .nav-links a { transition: color .2s ease; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--pink); }
+    .nav-contact { padding: 11px 18px; border: 1px solid rgba(250, 92, 157, .65); border-radius: 3px; color: var(--paper); }
+    .menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 3px; background: transparent; color: var(--paper); cursor: pointer; }
+
+    .hero { min-height: 760px; display: grid; align-items: center; position: relative; overflow: hidden; padding: 145px 0 82px; }
+    .hero::before { content: ""; position: absolute; width: 450px; height: 450px; top: 120px; left: -300px; border: 1px solid rgba(250, 92, 157, .18); border-radius: 50%; box-shadow: 0 0 0 48px rgba(250, 92, 157, .025), 0 0 0 96px rgba(250, 92, 157, .018); pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: clamp(48px, 8vw, 110px); }
+    .eyebrow { display: flex; align-items: center; gap: 12px; color: var(--pink); font-size: 13px; font-weight: 700; letter-spacing: .04em; }
+    .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin: 24px 0 20px; font-family: var(--display); font-size: clamp(58px, 7.3vw, 100px); font-weight: 600; line-height: .96; letter-spacing: 0; }
+    h1 span { color: var(--pink); }
+    .hero-copy { max-width: 470px; color: #c4bfc1; font-size: 17px; }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 34px; }
+    .button { display: inline-flex; min-height: 52px; align-items: center; justify-content: center; gap: 12px; padding: 0 21px; border: 1px solid var(--pink); border-radius: 3px; background: var(--pink); color: var(--ink); font-weight: 700; transition: background .2s ease, color .2s ease, transform .2s ease; }
+    .button:hover { background: transparent; color: var(--pink); transform: translateY(-2px); }
+    .button-arrow { font-size: 20px; line-height: 1; }
+    .text-link { color: var(--paper); font-size: 14px; border-bottom: 1px solid rgba(245, 242, 238, .35); padding-bottom: 4px; }
+    .hero-visual { position: relative; width: min(100%, 430px); justify-self: end; padding: 0 25px 24px 0; }
+    .hero-visual::before { content: ""; position: absolute; inset: 28px 0 0 28px; border: 1px solid var(--pink); }
+    .portrait { position: relative; display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 35%; filter: saturate(.8); }
+    .portrait-label { position: absolute; left: -32px; bottom: 60px; padding: 13px 17px; background: var(--pink); color: var(--ink); font-family: var(--display); font-size: 14px; font-weight: 700; transform: rotate(-4deg); }
+    .availability { position: absolute; right: 0; bottom: 0; display: flex; align-items: center; gap: 9px; padding: 13px 16px; background: #1b1a1b; border: 1px solid var(--line); font-size: 12px; }
+    .availability span { width: 7px; height: 7px; border-radius: 50%; background: #a8e6a1; box-shadow: 0 0 10px rgba(168, 230, 161, .6); }
+    .hero-index { position: absolute; right: 32px; top: 50%; color: #5f5b5d; font-family: var(--display); font-size: 12px; writing-mode: vertical-rl; }
+
+    .section { padding: 112px 0; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 48px; }
+    .section-heading h2 { margin: 13px 0 0; font-family: var(--display); font-size: clamp(36px, 5vw, 58px); line-height: 1.05; font-weight: 600; }
+    .section-heading p { max-width: 340px; margin-bottom: 3px; color: var(--muted); }
+    .about { background: var(--paper); color: var(--ink); }
+    .about .eyebrow { color: #bd2867; }
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 12%; align-items: start; }
+    .about-copy { max-width: 670px; font-size: 20px; line-height: 1.65; }
+    .about-copy p { margin-bottom: 22px; }
+    .about-copy strong { color: #bd2867; font-weight: 700; }
+    .stats { display: flex; gap: clamp(28px, 6vw, 80px); margin-top: 42px; padding-top: 24px; border-top: 1px solid rgba(17, 17, 17, .18); }
+    .stat strong { display: block; font-family: var(--display); font-size: 15px; line-height: 1.4; }
+
+    .work { background: #181718; }
+    .work .section-heading p { max-width: 300px; }
+    .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 54px 26px; }
+    .project:nth-child(even) { margin-top: 80px; }
+    .project-image-wrap { position: relative; overflow: hidden; background: #282527; aspect-ratio: 1.22; }
+    .project-image-wrap img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2, .7, .2, 1); }
+    .project:hover img { transform: scale(1.045); }
+    .project-image-wrap::after { content: "↗"; position: absolute; right: 16px; bottom: 16px; display: grid; width: 44px; height: 44px; place-items: center; background: var(--pink); color: var(--ink); font-size: 22px; }
+    .project-meta { display: flex; justify-content: space-between; gap: 20px; align-items: baseline; padding-top: 17px; }
+    .project-meta h3 { margin: 0; font-family: var(--display); font-size: 22px; font-weight: 600; }
+    .project-meta span { color: var(--muted); font-size: 13px; }
+
+    .contact { position: relative; overflow: hidden; padding: 112px 0 96px; background: var(--pink); color: var(--ink); }
+    .contact .eyebrow { color: #40202d; }
+    .contact-grid { display: flex; justify-content: space-between; align-items: end; gap: 40px; }
+    .contact h2 { max-width: 720px; margin: 18px 0 0; font-family: var(--display); font-size: clamp(48px, 7vw, 88px); font-weight: 600; line-height: .98; }
+    .contact .button { flex: 0 0 auto; border-color: var(--ink); background: var(--ink); color: var(--paper); }
+    .contact .button:hover { background: transparent; color: var(--ink); }
+    .site-footer { padding: 25px 0; color: #aaa5a7; font-size: 13px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .footer-inner p { margin: 0; }
+    .footer-links { display: flex; gap: 22px; }
+    .footer-links a:hover { color: var(--pink); }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 40px, 560px); }
+      .nav { min-height: 76px; }
+      .menu-toggle { display: inline-grid; place-items: center; }
+      .nav-links { position: absolute; top: 76px; right: 20px; left: 20px; display: none; align-items: stretch; gap: 0; padding: 8px 18px; background: #1d1b1c; border: 1px solid var(--line); }
+      .nav-links.is-open { display: flex; flex-direction: column; }
+      .nav-links a { padding: 12px 0; }
+      .nav-contact { border: 0; border-top: 1px solid var(--line); border-radius: 0; }
+      .hero { min-height: unset; padding: 125px 0 76px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 55px; }
+      h1 { font-size: clamp(60px, 14vw, 88px); }
+      .hero-copy { font-size: 16px; }
+      .hero-visual { width: min(82%, 390px); justify-self: center; }
+      .portrait-label { left: -20px; }
+      .hero-index { display: none; }
+      .section { padding: 78px 0; }
+      .section-heading { display: block; margin-bottom: 34px; }
+      .section-heading p { margin-top: 16px; }
+      .about-grid { grid-template-columns: 1fr; gap: 25px; }
+      .about-copy { font-size: 18px; }
+      .project-grid { grid-template-columns: 1fr; gap: 34px; }
+      .project:nth-child(even) { margin-top: 0; }
+      .contact { padding: 78px 0; }
+      .contact-grid { align-items: start; flex-direction: column; gap: 28px; }
+      .footer-inner { align-items: start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav shell" aria-label="Navigasi Utama">
+      <a class="brand" href="#beranda" aria-label="Alex Punomo, Beranda"><span class="brand-mark" aria-hidden="true"></span>Alex Punomo</a>
+      <button class="menu-toggle" type="button" aria-label="Buka Menu" aria-expanded="false" aria-controls="nav-links"><span aria-hidden="true">☰</span></button>
+      <div class="nav-links" id="nav-links">
+        <a href="#tentang">Tentang</a>
+        <a href="#karya">Karya</a>
+        <a href="#kontak" class="nav-contact">Hubungi Saya</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="shell hero-grid">
+        <div class="hero-content reveal">
+          <div class="eyebrow">Desainer Digital - Jakarta</div>
+          <h1>Ide Besar,<br><span>Visual Berani.</span></h1>
+          <p class="hero-copy">Saya Alex Punomo, desainer digital yang mengubah ide menjadi identitas dan pengalaman visual yang terasa dekat.</p>
+          <div class="hero-actions">
+            <a class="button" href="#karya">Lihat Karya <span class="button-arrow" aria-hidden="true">↘</span></a>
+            <a class="text-link" href="#tentang">Kenali Saya</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <img class="portrait" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=85" alt="Potret seorang pria dengan latar belakang gelap" fetchpriority="high">
+          <div class="portrait-label">Ruang Untuk Ide Baru</div>
+          <div class="availability"><span aria-hidden="true"></span>Terbuka Untuk Proyek Baru</div>
+        </div>
+      </div>
+      <div class="hero-index" aria-hidden="true">01 - 04</div>
+    </section>
+
+    <section class="about section" id="tentang">
+      <div class="shell about-grid">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Sedikit Tentang Saya</div>
+          <h2>Desain Yang<br>Punya Tujuan.</h2>
+        </div>
+        <div class="about-copy reveal">
+          <p>Saya percaya desain yang baik bukan sekadar terlihat menarik. Desain yang baik <strong>membuat pesan terasa jelas</strong> dan membantu sebuah ide menemukan bentuknya.</p>
+          <p>Di sini saya merangkai identitas, situs, dan pengalaman digital lewat pendekatan yang sederhana, terarah, dan dekat dengan orang yang menggunakannya.</p>
+          <div class="stats">
+            <div class="stat"><strong>Identitas Visual</strong></div>
+            <div class="stat"><strong>Situs Digital</strong></div>
+            <div class="stat"><strong>Arah Seni</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="work section" id="karya">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <div>
+            <div class="eyebrow">Pilihan Karya</div>
+            <h2>Yang Sudah<br>Saya Rangkai.</h2>
+          </div>
+          <p>Eksplorasi visual untuk identitas, situs, dan kampanye digital.</p>
+        </div>
+        <div class="project-grid">
+          <a class="project reveal" href="#kontak" aria-label="Tanya tentang proyek Ruang Rasa">
+            <div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1100&q=85" alt="Komposisi desain grafis penuh warna" loading="lazy"></div>
+            <div class="project-meta"><h3>Ruang Rasa</h3><span>Konsep Identitas</span></div>
+          </a>
+          <a class="project reveal" href="#kontak" aria-label="Tanya tentang proyek Studio Sore">
+            <div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1100&q=85" alt="Tampilan situs pada layar laptop" loading="lazy"></div>
+            <div class="project-meta"><h3>Studio Sore</h3><span>Konsep Situs</span></div>
+          </a>
+          <a class="project reveal" href="#kontak" aria-label="Tanya tentang proyek Temu Kota">
+            <div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1100&q=85" alt="Ruang kerja dengan objek dan buku tertata" loading="lazy"></div>
+            <div class="project-meta"><h3>Temu Kota</h3><span>Eksplorasi Kampanye</span></div>
+          </a>
+          <a class="project reveal" href="#kontak" aria-label="Tanya tentang proyek Nada Baru">
+            <div class="project-image-wrap"><img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1100&q=85" alt="Peralatan musik di dalam studio rekaman" loading="lazy"></div>
+            <div class="project-meta"><h3>Nada Baru</h3><span>Konsep Arah Seni</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontak">
+      <div class="shell contact-grid reveal">
+        <div>
+          <div class="eyebrow">Punya Ide Menarik?</div>
+          <h2>Mari Buat Sesuatu Yang Berarti.</h2>
+        </div>
+        <a class="button" href="mailto:?subject=Kolaborasi%20Proyek">Mulai Percakapan <span class="button-arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <p>© 2026 Alex Punomo. Dibuat Dengan Hati.</p>
+      <div class="footer-links"><a href="#beranda">Kembali Ke Atas ↑</a><a href="#karya">Karya</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.nav-links');
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Buka Menu' : 'Tutup Menu');
+      menu.classList.toggle('is-open', !isOpen);
+    });
+
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Buka Menu');
+        menu.classList.remove('is-open');
+      });
+    });
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+  </script>
+</body>
+</html>
